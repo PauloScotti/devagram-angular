@@ -1,0 +1,19 @@
+<div [className]="['containerUploadImagem' + classeCssContainer]"
+    (click)="inputArquivo.click()"
+>
+    <div class="containerPrevisualizacao">
+        <img
+            [src]="imagemPrevisulizacao"
+            alt="Imagem pré visualização"
+            [className]="classeImagemPrevisulizacao"
+        />
+    </div>
+
+    <input
+        type="file"
+        class="oculto"
+        accept="image/*"
+        (change)="trocarArquivo($event)"
+        #inputArquivo
+    />
+</div>

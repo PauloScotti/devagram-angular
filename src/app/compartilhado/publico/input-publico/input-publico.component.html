@@ -1,0 +1,25 @@
+<div class="containerInputPublico">
+    <div class="inputPublico">
+        <img
+            class="iconePublico"
+            alt="imagem do input"
+            [src]="imagem"
+            width="20"
+            height="20"
+        />
+
+        <input
+            [type]="tipo"
+            [placeholder]="placeholder"
+            [ngModel]="referenciaFormulario?.value"
+            (ngModelChange)="aoModificarCampo($event)"
+        />
+    </div>
+
+    <p *NgIf="referenciaFormulario?.invalid && referenciaFormulario?.dirty"
+        class="mensagemErro"
+        {{ obterMensagemErro() }}
+    >
+
+    </p>
+</div>
