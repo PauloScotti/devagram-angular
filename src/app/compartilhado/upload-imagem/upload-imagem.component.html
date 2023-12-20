@@ -1,11 +1,11 @@
-<div [className]="['containerUploadImagem' + classeCssContainer]"
+<div [ngClass]="['containerUploadImagem', classeCssContainer]"
     (click)="inputArquivo.click()"
 >
-    <div class="containerPrevisualizacao">
+    <div class="containerPrevisualizacao" *ngIf="imagemPrevisualizacao">
         <img
-            [src]="imagemPrevisulizacao"
-            alt="Imagem pré visualização"
-            [className]="classeImagemPrevisulizacao"
+            [src]="imagemPrevisualizacao"
+            alt="Imagem pre visualizacao"
+            [class]="classeCssImagemPrevisualizacao"
         />
     </div>
 

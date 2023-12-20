@@ -1,0 +1,53 @@
+<app-pagina-publica
+    classeCssCustomizada="paginaCadastro"
+    classeCssLogo="desktop"
+    textoBotaoSubmit="Cadastrar"
+    (submiterFormulario)="aoSubmeter()"
+>
+    <app-upload-imagem
+        imagemPrevisualizacao="assets/imagens/avatar.svg"
+        classeCssImagemPrevisualizacao="avatarPrevisualizacao"
+        classeCssContainer="paginaCadastroUpload"
+        [referenciaFormulario]="obterReferencia('file')"
+        conteudoFormulario
+    ></app-upload-imagem>
+
+    <app-input-publico
+        imagem="assets/imagens/usuarioAtivo.svg"
+        placeholder="Nome Completo"
+        tipo="text"
+        [referenciaFormulario]="obterReferencia('nome')"
+        conteudoFormulario
+    ></app-input-publico>
+
+    <app-input-publico
+        imagem="assets/imagens/envelope.svg"
+        placeholder="E-mail"
+        tipo="email"
+        [referenciaFormulario]="obterReferencia('email')"
+        conteudoFormulario
+    ></app-input-publico>
+
+    <app-input-publico
+        imagem="assets/imagens/chave.svg"
+        placeholder="Senha"
+        tipo="password"
+        [referenciaFormulario]="obterReferencia('senha')"
+        conteudoFormulario
+    ></app-input-publico>
+
+    <app-input-publico
+        imagem="assets/imagens/chave.svg"
+        placeholder="Confirmar Senha"
+        tipo="password"
+        [referenciaFormulario]="obterReferencia('confirmacaoSenha')"
+        conteudoFormulario
+    ></app-input-publico>
+
+    <app-rodape-pagina-publica
+        pergunta="Já possui uma conta?"
+        textoDaAcao="Faça seu login agora!"
+        rota="/login"
+        rodape
+    ></app-rodape-pagina-publica>
+</app-pagina-publica>

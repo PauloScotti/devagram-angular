@@ -8,10 +8,12 @@ describe('InputPublicoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputPublicoComponent]
+      declarations: [ InputPublicoComponent ]
     })
     .compileComponents();
-    
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(InputPublicoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

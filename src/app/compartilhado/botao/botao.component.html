@@ -1,7 +1,7 @@
 <button
     [type]="tipo"
     [disabled]="desabilitar"
-    [className]="['btn ' + cor + classeCss]"
+    [ngClass]="['btn', cor, classeCss]"
 >
-    {{texto}}
+    {{ texto }}
 </button>

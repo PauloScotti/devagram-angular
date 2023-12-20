@@ -1,0 +1,26 @@
+.containerUploadImagem {
+    &.paginaCadastroUpload {
+        text-align: center;
+        cursor: pointer;
+        object-fit: cover;
+        position: relative;
+
+        .avatarPrevisualizacao {
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+        }
+
+        &::after {
+            content: url('/assets/imagens/camera.svg');
+            width: 40px;
+            height: 40px;
+            display: flex;
+            right: 0;
+            left: 90px;
+            margin: auto;
+            position: absolute;
+            bottom: 5px;
+        }
+    }
+}

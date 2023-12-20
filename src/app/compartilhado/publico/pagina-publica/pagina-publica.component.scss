@@ -1,0 +1,38 @@
+@import '../../../../assets/estilos/variaveis.scss';
+
+.containerPaginaPublica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0px 32px;
+
+    .containerConteudo {
+        width: 100%;
+    }
+
+    @media screen and (min-width: $breakpointDesktop) {
+        flex-direction: row;
+        padding: 0px 140px;
+
+        .containerLogo {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            height: 40%;
+
+            .logo {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        .containerConteudo {
+            flex: 1;
+            border: 1px solid var(--corPrimaria);
+            border-radius: 26px;
+            padding: 55px;
+        }
+    }
+}

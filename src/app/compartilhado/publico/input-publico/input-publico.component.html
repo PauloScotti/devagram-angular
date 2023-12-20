@@ -1,7 +1,7 @@
 <div class="containerInputPublico">
     <div class="inputPublico">
         <img
-            class="iconePublico"
+            class="iconeInput"
             alt="imagem do input"
             [src]="imagem"
             width="20"
@@ -16,10 +16,8 @@
         />
     </div>
 
-    <p *NgIf="referenciaFormulario?.invalid && referenciaFormulario?.dirty"
-        class="mensagemErro"
+    <p *ngIf="referenciaFormulario?.invalid && referenciaFormulario?.dirty"
+        class="mensagemErro">
         {{ obterMensagemErro() }}
-    >
-
     </p>
 </div>

@@ -1,37 +1,43 @@
-@mixin botaoPrimario{
+@mixin botaoPrimario {
     color: var(--branco);
     background-color: var(--corPrimaria);
 }
 
-@mixin botaoOutline{
+@mixin botaoOutline {
     background-color: var(--branco);
     color: var(--corPrimaria);
     border: 1px solid var(--corPrimaria);
 }
 
-.btn{
+.btn {
     width: 100%;
     border: none;
     border-radius: 6px;
     cursor: pointer;
 
-    &.primaria{
+    &.primaria {
         @include botaoPrimario;
 
-        &:hover{
+        &:hover {
             @include botaoOutline;
         }
     }
 
-    &.outline{
+    &.outline {
         @include botaoOutline;
 
-        &:hover{
+        &:hover {
             @include botaoPrimario;
         }
     }
 
-    &:disabled{
+    &:disabled {
         opacity: 0.5;
+    }
+
+    &.botaoPublico {
+        margin-top: 40px;
+        padding: 12px;
+        font-size: 16px;
     }
 }

@@ -1,0 +1,14 @@
+app-pagina-publica {
+    app-input-publico {
+        display: block;
+        margin-bottom: 24px;
+
+        &:last-of-type {
+            margin-bottom: 0px;
+        }
+
+        &:first-of-type {
+            margin-top: 40px;
+        }
+    }
+}

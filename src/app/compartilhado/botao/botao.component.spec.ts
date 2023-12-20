@@ -8,10 +8,12 @@ describe('BotaoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BotaoComponent]
+      declarations: [ BotaoComponent ]
     })
     .compileComponents();
-    
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(BotaoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
