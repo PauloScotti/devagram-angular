@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
+import { resolve } from 'dns';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,19 @@ export class DevagramApiService {
     });
   }
 
+  public get(url: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.http.get(
+        this.obterUrl(url)
+      ).subscribe({
+        next: v => resolve(v),
+        error: e => reject(e)
+      })
+    });
+  }
+
   private obterUrl(url: string): string {
     return `${this.devagramUrlApi}/${url}`;
   }
+
 }

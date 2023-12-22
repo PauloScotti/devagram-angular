@@ -1,4 +1,4 @@
 export type RespostaApiDevagram = {
-    msg?: string,
+    mensagem?: string,
     erro?: string
 }
