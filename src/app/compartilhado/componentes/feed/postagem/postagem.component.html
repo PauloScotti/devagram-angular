@@ -1,0 +1,65 @@
+<div class="containerPostagem">
+    <a [routerLink]="'/perfil/' + postagem.idUsuario">
+        <div class="cabecalhoPostagem">
+            <app-avatar classeCss="feedDesktop" [src]="postagem.usuario?.avatar"></app-avatar>
+            <strong>{{ postagem.usuario?.nome }}</strong>
+        </div>
+    </a>
+
+    <div class="fotoPostagem">
+        <img [src]="postagem.foto" alt="Foto do post" />
+    </div>
+
+    <div class="rodapePostagem">
+        <div class="acoesPostagem">
+            <img src="assets/imagens/curtir.svg" alt="Icone curtir" />
+            <img class="iconeComentario" [src]="obterImagemComentario()" alt="Icone comentário"
+                (click)="alternarExibicaoCaixaDeComentario()" />
+            <span class="curtidas">
+                Curtido por <strong>{{ postagem.quantidadeCurtidas }} pessoas</strong>
+            </span>
+        </div>
+
+        <div class="descricaoPostagem">
+            <strong class="nomeUsuario">
+                {{ postagem.usuario?.nome }}
+            </strong>
+
+            <p class="descricao">
+                {{ postagem.descricao.substring(0, this.limiteCaracteresDescricao).trim() }}
+
+                <span class="tresPontinhos" *ngIf="postagem.descricao.length > limiteCaracteresDescricao">
+                    ...
+                </span>
+                <span *ngIf="postagem.descricao.length > limiteCaracteresDescricao" class="exibirMais"
+                    (click)="exibirDescricaoCompleta()">
+                    mais
+                </span>
+            </p>
+        </div>
+
+        <div class="comentarios">
+            <div class="comentario" *ngFor="let comentario of postagem.comentarios">
+                <strong class="nomeUsuario">
+                    {{ comentario.nome }}
+                </strong>
+
+                <p class="descricao">
+                    {{comentario.comentario}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="caixaComentario" *ngIf="deveExibirCaixaComentario">
+        <app-avatar [src]="usuarioLogado?.avatar"></app-avatar>
+        <textarea (keyup)="verificarQuantidadeLinhas()" (keyup.enter)="fazerComentario()"
+            [rows]="quantidadeLinhasTextearea" [(ngModel)]="comentarioAtual" autofocus="true"
+            placeholder="Adicione um comentário...">
+        </textarea>
+
+        <button type="button" class="btnPublicar desktop" (click)="fazerComentario()">
+            Publicar
+        </button>
+    </div>
+</div>

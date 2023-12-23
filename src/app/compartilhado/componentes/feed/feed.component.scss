@@ -1,0 +1,14 @@
+@import '../../../../assets/estilos/variaveis.scss';
+
+.feedContainer{
+    padding-bottom: 60px;
+    background-color: var(--branco);
+    
+}
+
+.conteudoDektop{
+    @media screen and (min-width: $breakpointDesktop) {
+        width: 30%;
+        margin: auto;
+    }
+}

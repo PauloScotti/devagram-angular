@@ -1,0 +1,26 @@
+@import '../../../assets/estilos/variaveis.scss';
+
+.barraNavegacao {
+    ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0px 5px;
+        margin: 0;
+
+        li {
+            list-style: none;
+        }
+    }
+
+    @media screen and (min-width: $breakpointDesktop) {
+        ul {
+            li {
+                cursor: pointer;
+                
+                &:nth-child(2) {
+                    margin: auto 20px;
+                }
+            }
+        }
+    }
+}

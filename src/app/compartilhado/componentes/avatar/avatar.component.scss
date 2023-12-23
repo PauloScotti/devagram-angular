@@ -1,0 +1,16 @@
+@import '../../../../assets/estilos/variaveis.scss';
+
+.avatar {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+
+    @media screen and (min-width: $breakpointDesktop) {
+        &.feedDesktop {
+            height: 50px;
+            width: 50px;
+        }
+    }
+}

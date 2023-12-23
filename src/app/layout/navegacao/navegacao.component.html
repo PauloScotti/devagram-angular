@@ -1,12 +1,12 @@
 <nav class="barraNavegacao">
     <ul>
-        <li>
+        <li (click)="redirecionarPara('home')">
             <img [src]="obterImagem('home')" alt="icone home">
         </li>
-        <li>
+        <li (click)="redirecionarPara('publicacao')">
             <img [src]="obterImagem('publicacao')" alt="icone publicacao">
         </li>
-        <li>
+        <li (click)="redirecionarPara('perfil')">
             <img [src]="obterImagem('perfil')" alt="icone perfil">
         </li>
     </ul>

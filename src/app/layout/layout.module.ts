@@ -20,7 +20,8 @@ import { RodapeComponent } from './rodape/rodape.component';
     CompartilhadoModule
   ],
   exports: [
-    CabecalhoComponent
+    CabecalhoComponent,
+    RodapeComponent
   ]
 })
 export class LayoutModule { }

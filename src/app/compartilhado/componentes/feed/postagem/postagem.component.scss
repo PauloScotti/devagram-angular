@@ -1,0 +1,153 @@
+@import '../../../../../assets/estilos/variaveis.scss';
+
+.containerPostagem {
+    margin-top: 18px;
+
+    > a {
+        text-decoration: none;
+
+        .cabecalhoPostagem {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2px;
+            padding: 0px 12px;
+        }
+    }
+
+    .fotoPostagem{
+        img{
+            width: 100%;
+            height: auto;
+            max-height: 360px;
+            object-fit: cover;
+        }
+    }
+
+    .rodapePostagem{
+        padding: 0px 16px;
+
+        strong.nomeUsuario {
+            float: left;
+            margin-right: 5px;
+        }
+
+        p.descricao {
+            margin: 0;
+            font-size: 12px;
+            color: var(--cinza4);
+        }
+
+        .acoesPostagem{
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+
+            .iconeComentario {
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+
+            .curtidas {
+                font-size: 10px;
+                font-family: var(--fontLight);
+
+                strong {
+                    margin-left: 2px;
+                    font-size: 10px;
+                }
+            }
+        }
+
+        .descricaoPostagem {
+            margin-bottom: 5px;
+
+            .exibirMais {
+                font-size: 12px;
+                color: var(--corPrimaria2);
+            }
+
+            .tresPontinhos {
+                margin-left: -2px;
+            }
+        }
+
+        .comentarios {
+            .comentario {
+                margin-bottom: 5px;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .caixaComentario{
+        width: 93%;
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+        padding: 0px 13px;
+
+        textarea {
+            resize: none;
+            outline: none;
+            border: none;
+            flex: 1;
+            font-size: 12px;
+            color: var(--cinza2);
+        }
+
+        .btnPublicar {
+            cursor: pointer;
+            background-color: transparent;
+            color: var(--corPrimaria);
+            font-size: 12px;
+            border: none;
+        }
+
+        @media screen and (min-width: $breakpointDesktop) {
+            textarea {
+                font-size: 12px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    @media screen and (min-width: $breakpointDesktop) {
+            &:first-child {
+                margin-top: 0;
+
+                padding-top: 8px;
+            }
+
+            .cabecalhoPostagem {
+                strong {
+                    font-size: 14px;
+                }
+            }
+
+            .fotoPostagem {
+                img {
+                    max-height: 500px;
+                }
+            }
+
+            .rodapePostagem {
+                strong.nomeUsuario, p.descricao {
+                    font-size: 12px;
+                }
+
+                .acoesPostagem {
+
+                    .curtidas {
+                        font-size: 12px;
+                    }
+
+                    .strong {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+}
