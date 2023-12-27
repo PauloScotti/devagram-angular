@@ -2,7 +2,7 @@ import { CadastroService } from './cadastro.service';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { confirmacaoSenha } from '../compartilhado/validadores/confirmacao-senha.validator';
-import { AutenticacaoService } from '../autenticacao/autenticacao.service';
+import { AutenticacaoService } from '../compartilhado/autenticacao/autenticacao.service';
 
 @Component({
   selector: 'app-cadastro',

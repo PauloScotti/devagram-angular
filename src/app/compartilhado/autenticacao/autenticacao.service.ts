@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { RespostaLoginDevagram } from './resposta-login-devagram.type';
 import { CredenciaisDevagram } from './credenciais-devagram.type';
 import { Inject, Injectable } from '@angular/core';
-import { DevagramApiService } from '../compartilhado/servicos/devagram-api.service';
+import { DevagramApiService } from '../servicos/devagram-api.service';
 import { Router } from '@angular/router';
-import { DevagramUsuarioApiService } from '../compartilhado/servicos/devagram-api-usuario.service';
+import { DevagramUsuarioApiService } from '../servicos/devagram-api-usuario.service';
 import { UsuarioLogado } from './usuario-logado.type';
 
 @Injectable({

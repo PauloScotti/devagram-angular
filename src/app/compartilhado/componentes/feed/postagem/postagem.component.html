@@ -12,7 +12,7 @@
 
     <div class="rodapePostagem">
         <div class="acoesPostagem">
-            <img src="assets/imagens/curtir.svg" alt="Icone curtir" />
+            <img [src]="obterImagemCurtida()" alt="Icone curtir" (click)="manipularCurtida()" />
             <img class="iconeComentario" [src]="obterImagemComentario()" alt="Icone comentário"
                 (click)="alternarExibicaoCaixaDeComentario()" />
             <span class="curtidas">
@@ -58,7 +58,8 @@
             placeholder="Adicione um comentário...">
         </textarea>
 
-        <button type="button" class="btnPublicar desktop" (click)="fazerComentario()">
+        <button type="button" [disabled]="!this.validarComentario()" class="btnPublicar desktop"
+            (click)="fazerComentario()">
             Publicar
         </button>
     </div>

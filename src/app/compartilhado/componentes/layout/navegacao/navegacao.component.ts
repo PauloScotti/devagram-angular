@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavegacaoComponent implements OnInit {
 
+  private rotaAtiva: string = 'home';
   private mapaDeRotas: ItemMenu = {
     home: {
       img: 'home',
@@ -36,10 +37,14 @@ export class NavegacaoComponent implements OnInit {
 
   public obterImagem(menu: string):string {
     const rotasMenu = this.mapaDeRotas[menu];
-    const icone = rotasMenu.rotas.includes(this.router.url)
-      ? `${rotasMenu.img}Ativo`
-      : rotasMenu.img;
 
-      return `assets/imagens/${icone}.svg`;
+    let icone = rotasMenu.img;
+
+    if(rotasMenu.rotas.includes(this.router.url) || this.rotaAtiva === menu) {
+      icone = `${rotasMenu.img}Ativo`;
+      this.rotaAtiva = menu;
+    }
+
+    return `assets/imagens/${icone}.svg`;
   }
 }

@@ -42,6 +42,10 @@
             align-items: center;
             margin-bottom: 8px;
 
+            > img {
+                cursor: pointer;
+            }
+
             .iconeComentario {
                 margin-left: 8px;
                 margin-right: 8px;
@@ -50,6 +54,7 @@
             .curtidas {
                 font-size: 10px;
                 font-family: var(--fontLight);
+                cursor: pointer;
 
                 strong {
                     margin-left: 2px;
@@ -64,6 +69,7 @@
             .exibirMais {
                 font-size: 12px;
                 color: var(--corPrimaria2);
+                cursor: pointer;
             }
 
             .tresPontinhos {
@@ -104,6 +110,11 @@
             color: var(--corPrimaria);
             font-size: 12px;
             border: none;
+
+            &:disabled {
+                opacity: 0.85;
+                cursor: not-allowed;
+            }
         }
 
         @media screen and (min-width: $breakpointDesktop) {

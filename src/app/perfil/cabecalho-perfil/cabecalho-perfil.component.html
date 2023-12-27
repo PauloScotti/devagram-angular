@@ -1,0 +1,29 @@
+<div class="cabecalhoPerfil conteudoDesktop">
+    <div class="acoesCabecalhoPerfil">
+        <img src="assets/imagens/setaEsquerda.svg" class="mobile" alt="Seta Esquerda" (click)="voltarParaHome()" />
+
+        <h3>{{ usuario?.nome}}</h3>
+    </div>
+
+    <div class="estatisticas">
+        <app-avatar [src]="usuario?.avatar"></app-avatar>
+
+        <div class="conteudoEstatisticas">
+            <div class="numeros">
+                <div class="numero">
+                    <strong>{{usuario?.publicacoes}} </strong>
+                    <span>Publicações</span>
+                </div>
+                <div class="numero">
+                    <strong>{{usuario?.seguidores?.length}} </strong>
+                    <span>Seguidores</span>
+                </div>
+                <div class="numero">
+                    <strong>{{usuario?.seguindo?.length}}</strong>
+                    <span>Seguindo</span>
+                </div>
+            </div>
+            <app-botao texto="Seguir"></app-botao>
+        </div>
+    </div>
+</div>

@@ -71,6 +71,7 @@ body {
     @media screen and (min-width: $breakpointDesktop) {
         background-color: var(--cinza);
         background-image: url('assets/imagens/fundoDesktop.svg');
+        background-size: cover;
     }
 }
 

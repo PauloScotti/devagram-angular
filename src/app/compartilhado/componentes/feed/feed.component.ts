@@ -1,48 +1,63 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Postagem } from './postagem.type';
-import { AutenticacaoService } from 'src/app/autenticacao/autenticacao.service';
-import { UsuarioLogado } from 'src/app/autenticacao/usuario-logado.type';
+import { AutenticacaoService } from 'src/app/compartilhado/autenticacao/autenticacao.service';
+import { UsuarioLogado } from 'src/app/compartilhado/autenticacao/usuario-logado.type';
+import { FeedService } from './feed.service';
+import { UsuarioDevagram } from '../../tipos/usuario-devagram.type';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, OnChanges {
 
+  @Input() usuario?: UsuarioDevagram | null;
   public usuarioLogado: UsuarioLogado | null;
-  public postagens: Array<Postagem> = [
-    {
-      usuario: {
-        nome: 'Paulo Scotti',
-      },
-      comentarios: [{
-        nome: 'Paulo Scotti',
-        comentario: 'Top demais'
-      }],
-      foto: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/617A/production/_125745942_gettyimages-1230511216.jpg',
-      quantidadeCurtidas: 32,
-      descricao: 'Olá mundo! Eu sou o Daniel Castello. Aqui pra vocês, Dani! A minha carreira foi sempre focada em soluções digitais e tecnologia.'
-    } as Postagem,
-    {
-      usuario: {
-        nome: 'Daniel Scotti'
-      },
-      comentarios: [{
-        nome: 'Paulo Scotti',
-        comentario: 'Top demais'
-      }],
-      foto: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/617A/production/_125745942_gettyimages-1230511216.jpg',
-      quantidadeCurtidas: 12,
-      descricao: 'Olá mundo! Eu sou o Kaique Jesus, aqui pra vocês, Ka! blablablablabla blablablablabla blablablablabla blablablablabla'
-    } as Postagem
-  ];
+  public postagens: Array<Postagem> = [];
 
-  constructor(private servicoAutenticacao: AutenticacaoService) {
+  constructor(
+      private servicoAutenticacao: AutenticacaoService,
+      private servicoFeed: FeedService,
+      private servicoRotaAtiva: ActivatedRoute
+    ) {
     this.usuarioLogado = this.servicoAutenticacao.obterUsuarioLogado()
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes['usuario'].previousValue !== changes['usuario'].currentValue) {
+      this.carregarPostagens();
+    }
   }
 
   ngOnInit(): void {
+    this.carregarPostagens();
+  }
+
+  async carregarPostagens() {
+    try {
+      let idUsuario = '';
+      if(this.usuario === null) {
+        return;
+      } else if (this.usuario) {
+        idUsuario = this.usuario!._id;
+      }
+
+      const postagensApi = await this.servicoFeed.carregarPostagens(
+        idUsuario
+      );
+      this.postagens = postagensApi.map(postagem => ({
+        ...postagem,
+        usuario: postagem.usuario || {
+          nome: this.usuario?.nome,
+          avatar: this.usuario?.avatar,
+        },
+        estaCurtido: postagem.likes.includes(this.usuarioLogado?.id || ''),
+        quantidadeCurtidas: postagem.likes.length
+      }) as Postagem)
+    } catch (e:any) {
+      alert(e.error?.erro || 'Erro ao carregar o feer!');
+    }
   }
 
 }

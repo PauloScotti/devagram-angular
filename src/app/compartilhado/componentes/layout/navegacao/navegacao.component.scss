@@ -1,4 +1,4 @@
-@import '../../../assets/estilos/variaveis.scss';
+@import '../../../../../assets/estilos/variaveis.scss';
 
 .barraNavegacao {
     ul {
@@ -9,6 +9,11 @@
 
         li {
             list-style: none;
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
         }
     }
 
