@@ -6,6 +6,9 @@ import { UsuarioDevagram } from '../tipos/usuario-devagram.type';
   providedIn: 'root'
 })
 export class DevagramUsuarioApiService extends DevagramApiService {
+    public alternarSeguir(idUsuario: string) {
+      return this.put('seguir?id=' + idUsuario, {});
+    }
     public buscarDadosUsuario(): Promise<UsuarioDevagram> {
         return this.get('usuario');
     }

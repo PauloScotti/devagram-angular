@@ -1,5 +1,5 @@
 <div class="containerPostagem">
-    <a [routerLink]="'/perfil/' + postagem.idUsuario">
+    <a [routerLink]="obterUrlPerfil()">
         <div class="cabecalhoPostagem">
             <app-avatar classeCss="feedDesktop" [src]="postagem.usuario?.avatar"></app-avatar>
             <strong>{{ postagem.usuario?.nome }}</strong>

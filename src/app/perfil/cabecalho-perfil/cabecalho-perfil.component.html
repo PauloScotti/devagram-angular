@@ -1,12 +1,16 @@
 <div class="cabecalhoPerfil conteudoDesktop">
     <div class="acoesCabecalhoPerfil">
-        <img src="assets/imagens/setaEsquerda.svg" class="mobile" alt="Seta Esquerda" (click)="voltarParaHome()" />
+        <img src="assets/imagens/setaEsquerda.svg" class="mobile" alt="Seta Esquerda" (click)="voltarParaHome()"
+            *ngIf="!estaPerfilPessoal" />
 
         <h3>{{ usuario?.nome}}</h3>
+
+        <img src="assets/imagens/logout.svg" alt="Icone Logout" (click)="logout()" *ngIf="estaPerfilPessoal" />
     </div>
+    <hr class="linhaHorizontal" />
 
     <div class="estatisticas">
-        <app-avatar [src]="usuario?.avatar"></app-avatar>
+        <app-avatar classeCss="avatarPerfil" [src]="usuario?.avatar"></app-avatar>
 
         <div class="conteudoEstatisticas">
             <div class="numeros">
@@ -23,7 +27,8 @@
                     <span>Seguindo</span>
                 </div>
             </div>
-            <app-botao texto="Seguir"></app-botao>
+            <app-botao classeCss="btnCabecalhoPerfil" (click)="manipularCliqueBotaoPrincipal()"
+                [cor]="obterCorBotaoPrincipal()" [texto]="obterTextoBotaoPrincipal()"></app-botao>
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ export type UsuarioDevagram = {
     nome: string,
     email: string,
     avatar: string,
+    segueEsseUsuario: boolean,
     seguidores: Array<string>,
     seguindo: Array<string>,
     publicacoes: number

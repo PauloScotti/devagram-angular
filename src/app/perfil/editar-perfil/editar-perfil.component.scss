@@ -1,0 +1,72 @@
+@import '../../../assets/estilos/variaveis.scss';
+
+.containerEdicaoPerfil {
+    background-color: var(--branco);
+    height: 100%;
+
+    .conteudoEdicaoPerfil{
+        .edicaoAvatar {
+            app-upload-imagem {
+                span {
+                    display: block;
+                    text-align: center;
+                    color: var(--corPrimaria);
+                    font-size: 12px;
+                    text-decoration: underline;
+                    margin-bottom: 14px;
+                }
+            }
+        }
+
+        .edicaoNomeUsuario {
+            padding: 14px;
+
+            .conteudoEdicaoNome {
+                display: flex;
+                align-items: center;
+
+                input {
+                    flex: 1;
+                    margin: 0 14px;
+                    border: none;
+                    font-size: 12px;
+                    color: var(--cinza4);
+                    outline: none;
+                    font-family: var(--fontBold);
+                }
+
+                label {
+                    font-size: 12px;
+                    color: var(--cinza3);
+                }
+
+                img {
+                    cursor: pointer;
+                }
+            }
+
+            .linhaHorizontal {
+                margin-top: 14px;
+                width: 100%;
+            }
+        }
+    }
+
+    @media screen and (min-width: $breakpointDesktop) {
+        .conteudoEdicaoPerfil{
+            .linhaHorizontal {
+                width: 94%;
+            }
+
+            .edicaoAvatar {
+                app-upload-imagem {
+                    cursor: pointer;
+                    
+                    span {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

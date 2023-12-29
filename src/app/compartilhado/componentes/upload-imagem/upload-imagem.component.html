@@ -1,19 +1,9 @@
-<div [ngClass]="['containerUploadImagem', classeCssContainer]"
-    (click)="inputArquivo.click()"
->
+<div [ngClass]="['containerUploadImagem', classeCssContainer]" (click)="inputArquivo.click()">
     <div class="containerPrevisualizacao" *ngIf="imagemPrevisualizacao">
-        <img
-            [src]="imagemPrevisualizacao"
-            alt="Imagem pre visualizacao"
-            [class]="classeCssImagemPrevisualizacao"
-        />
+        <img [src]="imagemPrevisualizacao" alt="Imagem pre visualizacao" [class]="classeCssImagemPrevisualizacao" />
     </div>
 
-    <input
-        type="file"
-        class="oculto"
-        accept="image/*"
-        (change)="trocarArquivo($event)"
-        #inputArquivo
-    />
+    <ng-content></ng-content>
+
+    <input type="file" class="oculto" accept="image/*" (change)="trocarArquivo($event)" #inputArquivo />
 </div>

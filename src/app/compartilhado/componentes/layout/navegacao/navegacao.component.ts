@@ -21,7 +21,7 @@ export class NavegacaoComponent implements OnInit {
     },
     perfil: {
       img: 'usuario',
-      rotas: ['/perfil/pessoal']
+      rotas: ['/perfil/pessoal', '/perfil/pessoal/editar']
     }
   }
   

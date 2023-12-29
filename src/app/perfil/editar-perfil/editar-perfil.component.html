@@ -1,0 +1,36 @@
+<div class="layoutInterno">
+    <app-cabecalho class="desktop"></app-cabecalho>
+
+    <div class="conteudoInterno conteudoDesktop">
+        <div class="containerEdicaoPerfil" [formGroup]="form">
+            <div class="conteudoEdicaoPerfil">
+                <app-cabecalho-com-acoes textoAcaoEsquerda="Cancelar" titulo="Editar perfil" textoAcaoDireita="Concluir"
+                    [desabilitarAcaoDireita]="obterReferenciaInput('nome').invalid"
+                    (aoClicarAcaoEsquerda)="voltarParaHome()"
+                    (aoClicarAcaoDireita)="atualizarPerfil()"></app-cabecalho-com-acoes>
+
+                <hr class="linhaHorizontal" />
+
+                <div class="edicaoAvatar">
+                    <app-upload-imagem [referenciaFormulario]="obterReferenciaInput('file')"
+                        [imagemPrevisualizacao]="usuarioLogado?.avatar" classeCssContainer="uploadImagemEdicaoPerfil"
+                        classeCssImagemPrevisualizacao="avatarEdicaoPerfil">
+                        <span>Alterar foto do perfil</span>
+                    </app-upload-imagem>
+                </div>
+
+                <hr class="linhaHorizontal" />
+                <div class="edicaoNomeUsuario">
+                    <div class="conteudoEdicaoNome">
+                        <label>Nome</label>
+                        <input type="text" formControlName="nome">
+                        <img src="assets/imagens/limpar.svg" alt="Icone Limpar" (click)="limparInputNome()">
+                    </div>
+                    <hr class="linhaHorizontal" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-rodape></app-rodape>
+</div>

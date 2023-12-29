@@ -89,3 +89,21 @@ strong {
     font-size: 12px;
     color: var(--cinza4);
 }
+
+.conteudoDesktop {
+    @media screen and (min-width: $breakpointDesktop) {
+        width: 30%;
+        margin: auto;
+    }
+}
+
+.linhaHorizontal {
+    height: 0.5px;
+    border: none;
+    background-color: var(--cinza1);
+    margin: 0 auto;
+
+    @media screen and (min-width: $breakpointDesktop) {
+        width: 90%;
+    }
+}
