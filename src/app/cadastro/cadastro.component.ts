@@ -41,14 +41,14 @@ export class CadastroComponent implements OnInit {
 
     try {
       const valoresDoFormulario = this.form.value;
-      let corpoDaRequisicao = valoresDoFormulario;
+      const corpoDaRequisicao = new FormData();
+      
+      corpoDaRequisicao.append('nome', valoresDoFormulario.nome);
+      corpoDaRequisicao.append('email', valoresDoFormulario.email);
+      corpoDaRequisicao.append('senha', valoresDoFormulario.senha);
 
       if (valoresDoFormulario.file) {
-        corpoDaRequisicao = new FormData();
         corpoDaRequisicao.append('file', valoresDoFormulario.file);
-        corpoDaRequisicao.append('nome', valoresDoFormulario.nome);
-        corpoDaRequisicao.append('email', valoresDoFormulario.email);
-        corpoDaRequisicao.append('senha', valoresDoFormulario.senha);
       }
 
       await this.servicoCadastro.cadastrar(corpoDaRequisicao);
