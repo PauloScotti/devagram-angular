@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemMenu } from './item-menu.type';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navegacao',
@@ -25,9 +25,25 @@ export class NavegacaoComponent implements OnInit {
     }
   }
   
-  constructor(private router: Router) { }
+  constructor(
+      private router: Router,
+      private rotaAtivada: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
+    this.rotaAtivada.url.subscribe(() => {
+      this.definirRotaAtiva();
+    })
+  }
+
+  public definirRotaAtiva() {
+    for (const menu in this.mapaDeRotas) {
+      const rotaMenu = this.mapaDeRotas[menu];
+      if (rotaMenu.rotas.includes(this.router.url)) {
+        this.rotaAtiva = menu;
+        break;
+      }
+    }
   }
 
   public redirecionarPara(menu: string): void {
@@ -35,14 +51,12 @@ export class NavegacaoComponent implements OnInit {
     this.router.navigateByUrl(rotasMenu.rotas[0]);
   }
 
-  public obterImagem(menu: string):string {
-    const rotasMenu = this.mapaDeRotas[menu];
+  public obterImagem(menu: string): string {
+    const rotaMenu = this.mapaDeRotas[menu];
 
-    let icone = rotasMenu.img;
-
-    if(rotasMenu.rotas.includes(this.router.url) || this.rotaAtiva === menu) {
-      icone = `${rotasMenu.img}Ativo`;
-      this.rotaAtiva = menu;
+    let icone = rotaMenu.img;
+    if (this.rotaAtiva === menu) {
+      icone = `${rotaMenu.img}Ativo`;
     }
 
     return `assets/imagens/${icone}.svg`;

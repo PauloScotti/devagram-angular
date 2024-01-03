@@ -11,6 +11,7 @@ export class CabecalhoComAcoesComponent implements OnInit {
   @Input() textoAcaoEsquerda?: string;
   @Input() textoAcaoDireita: string = '';
   @Input() titulo: string = '';
+  @Input() classeCss: string = '';
   @Input() desabilitarAcaoDireita: boolean = false;
   @Output() aoClicarAcaoEsquerda: EventEmitter<void> = new EventEmitter()
   @Output() aoClicarAcaoDireita: EventEmitter<void> = new EventEmitter()

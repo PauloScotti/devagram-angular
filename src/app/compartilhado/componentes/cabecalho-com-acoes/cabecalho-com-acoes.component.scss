@@ -19,6 +19,12 @@
         font-family: var(--fontBold);
     }
 
+    &.cabecalhoComAcoesPublicacao {
+        h3 {
+            padding-left: 50px;
+        }
+    }
+
     .btnAcaoDireita {
         border: none;
         background-color: transparent;
@@ -36,6 +42,10 @@
     @media screen and (min-width: $breakpointDesktop) {
         h3 {
             font-size: 14px;
+        }
+
+        .iconeEsquerda {
+            cursor: pointer;
         }
 
         .btnAcaoDireita{

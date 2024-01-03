@@ -107,3 +107,11 @@ strong {
         width: 90%;
     }
 }
+
+.bordaGradientAvatar {
+    border: solid 3px transparent;
+    background-image: linear-gradient(to bottom, white, white),
+        radial-gradient(circle at top center, var(--corPrimaria), var(--corPrimaria2));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}

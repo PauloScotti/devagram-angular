@@ -1,4 +1,5 @@
-<div [ngClass]="['containerUploadImagem', classeCssContainer]" (click)="inputArquivo.click()">
+<div [ngClass]="['containerUploadImagem', classeCssContainer]" (click)="inputArquivo.click()"
+    (drop)="manipularDrop($event)" (dragover)="manipularDragOver($event)">
     <div class="containerPrevisualizacao" *ngIf="imagemPrevisualizacao">
         <img [src]="imagemPrevisualizacao" alt="Imagem pre visualizacao" [class]="classeCssImagemPrevisualizacao" />
     </div>

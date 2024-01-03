@@ -1,0 +1,39 @@
+<div class="layoutInterno">
+    <app-cabecalho class="desktop"></app-cabecalho>
+
+    <div class="conteudoInterno conteudoDesktop" [formGroup]="form">
+        <div class="containerPublciacao">
+            <app-cabecalho-com-acoes [classeCss]="obterClasseCssCabecalho()" [srcImagemEsquerda]="obterImagemEsquerda()"
+                titulo="Nova publicação" [textoAcaoDireita]="obterTextoAcaoDireita()"
+                [desabilitarAcaoDireita]="verificarHabilitacaoAcaoDireita()"
+                (aoClicarAcaoDireita)="manipularCliqueAcaoDireita()"
+                (aoClicarAcaoEsquerda)="manipularCliqueAcaoEsquerda()"></app-cabecalho-com-acoes>
+
+            <hr class="linhaHorizontal" />
+
+            <div class="conteudoPublicacao">
+                <div class="primeiraEtapa" *ngIf="estaNaPrimeiraEtapa()">
+                    <app-upload-imagem [referenciaFormulario]="obterReferenciaInput('file')"
+                        classeCssImagemPrevisualizacao="imagemPrevisualizacaoPublicacao"
+                        classeCssContainer="paginaPublicacao" [imagemPrevisualizacao]="obterImagemPrevisualizacao()"
+                        (aoAtualizarImagem)="armazenarImagemPrevisualizacao($event)">
+                        <span class="textoArraste desktop">Arraste sua foto aqui</span>
+                        <app-botao texto="Selecione uma imagem" classeCss="botaoPublicacao"></app-botao>
+                    </app-upload-imagem>
+                </div>
+
+                <div class="segundaEtapa" *ngIf="estaNaSegundaEtapa()">
+                    <app-upload-imagem [referenciaFormulario]="obterReferenciaInput('file')"
+                        classeCssImagemPrevisualizacao="imagemPrevisualizacaoPublicacao2Etapa"
+                        classeCssContainer="paginaPublicacao" [imagemPrevisualizacao]="obterImagemPrevisualizacao()"
+                        (aoAtualizarImagem)="armazenarImagemPrevisualizacao($event)">
+                    </app-upload-imagem>
+
+                    <textarea placeholder="Escreva uma legenda..." formControlName="descricao" rows="5"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-rodape></app-rodape>
+</div>

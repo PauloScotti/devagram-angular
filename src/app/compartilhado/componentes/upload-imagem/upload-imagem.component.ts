@@ -19,11 +19,8 @@ export class UploadImagemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public trocarArquivo(event: any): void {
-    if (event.target.files && event.target.files.length) {
-      const [arquivo] = event.target.files;
-
-      const fileReader = new FileReader();
+  private fazerUploadImagem(arquivo: File) {
+    const fileReader = new FileReader();
       fileReader.readAsDataURL(arquivo);
       fileReader.onloadend = () => {
         this.imagemPrevisualizacao = fileReader.result as string;
@@ -31,6 +28,26 @@ export class UploadImagemComponent implements OnInit {
         this.referenciaFormulario?.markAsDirty();
         this.aoAtualizarImagem.emit(this.imagemPrevisualizacao);
       }
+  }
+
+  public trocarArquivo(event: any): void {
+    if (event.target.files && event.target.files.length) {
+      const [arquivo] = event.target.files;
+
+      this.fazerUploadImagem(arquivo);
+    }
+  }
+
+  public manipularDragOver(evt: any) {
+    evt.preventDefault();
+  }
+
+  public manipularDrop(evt: any) {
+    evt.preventDefault();
+
+    if(evt.dataTransfer.files && evt.dataTransfer.files.length) {
+      const [arquivo] = evt.dataTransfer.files;
+      this.fazerUploadImagem(arquivo);
     }
   }
 }

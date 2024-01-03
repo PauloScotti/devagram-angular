@@ -1,6 +1,6 @@
-<div class="cabecalhoComAcoes">
-    <img *ngIf="srcImagemEsquerda" (click)="aoClicarAcaoEsquerda.emit()" [src]="srcImagemEsquerda"
-        alt="Icone Esquerda" />
+<div [ngClass]="['cabecalhoComAcoes', classeCss]">
+    <img *ngIf="srcImagemEsquerda" (click)="aoClicarAcaoEsquerda.emit()" [src]="srcImagemEsquerda" alt="Icone Esquerda"
+        class="iconeEsquerda" />
 
     <span *ngIf="textoAcaoEsquerda" (click)="aoClicarAcaoEsquerda.emit()" class="textoAcaoEsquerda">{{ textoAcaoEsquerda
         }}</span>

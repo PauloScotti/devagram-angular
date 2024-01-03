@@ -39,6 +39,24 @@
             }
         }
     }
+
+    &.paginaPublicacao {
+        .imagemPrevisualizacaoPublicacao,
+        .imagemPrevisualizacaoPublicacao2Etapa {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            
+            &.imagemPrevisualizacaoPublicacao {
+                margin-bottom: 34px;
+            }
+
+            @media screen and (min-width: $breakpointDesktop) {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
     
     @media screen and (min-width: $breakpointDesktop) {
         &.uploadImagemEdicaoPerfil {

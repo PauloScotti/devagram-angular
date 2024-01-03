@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  devagramUrlApi: 'http://localhost:3000/api'
+  devagramUrlApi: 'https://localhost:7177/api'
 };
 
 /*
