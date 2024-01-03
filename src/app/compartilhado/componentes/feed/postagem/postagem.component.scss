@@ -78,6 +78,9 @@
         }
 
         .comentarios {
+            max-height: 80px;
+            overflow-y: auto;
+
             .comentario {
                 margin-bottom: 5px;
             }
