@@ -16,7 +16,7 @@
         />
     </div>
 
-    <p *ngIf="referenciaFormulario?.invalid && referenciaFormulario?.dirty"
+    <p *ngIf="referenciaFormulario?.invalid && referenciaFormulario.dirty"
         class="mensagemErro">
         {{ obterMensagemErro() }}
     </p>

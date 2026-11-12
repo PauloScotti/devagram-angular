@@ -1,4 +1,4 @@
-@import '../../../../assets/estilos/variaveis.scss';
+@use '../../../../assets/estilos/variaveis.scss' as *;
 
 .feedContainer{
     padding-bottom: 60px;

@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BotaoComponent } from './componentes/botao/botao.component';
 import { AvatarComponent } from './componentes/avatar/avatar.component';
 import { UploadImagemComponent } from './componentes/upload-imagem/upload-imagem.component';
@@ -23,6 +23,7 @@ import { LoadingComponent } from './componentes/loading/loading.component';
 
 @NgModule({
   providers: [
+    provideHttpClient(withInterceptorsFromDi()),
     {
       provide: 'DEVAGRAM_URL_API',
       useValue: environment.devagramUrlApi
@@ -51,8 +52,7 @@ import { LoadingComponent } from './componentes/loading/loading.component';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule,
-    HttpClientModule
+    RouterModule
   ],
   exports: [
     BotaoComponent,

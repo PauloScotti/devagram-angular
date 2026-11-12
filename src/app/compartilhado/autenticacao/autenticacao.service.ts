@@ -6,6 +6,7 @@ import { DevagramApiService } from '../servicos/devagram-api.service';
 import { Router } from '@angular/router';
 import { DevagramUsuarioApiService } from '../servicos/devagram-api-usuario.service';
 import { UsuarioLogado } from './usuario-logado.type';
+import { limparSessao } from './sessao';
 
 @Injectable({
   providedIn: 'root'
@@ -46,11 +47,7 @@ export class AutenticacaoService extends DevagramApiService {
   }
 
   logout(): void {
-    localStorage.removeItem('token');
-    localStorage.removeItem('nome');
-    localStorage.removeItem('email');
-    localStorage.removeItem('avatar');
-    localStorage.removeItem('id');
+    limparSessao();
 
     this.router.navigateByUrl('/login');
   }

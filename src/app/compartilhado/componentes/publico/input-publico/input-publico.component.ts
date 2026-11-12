@@ -1,7 +1,9 @@
 import { AbstractControl } from '@angular/forms';
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-input-publico',
   templateUrl: './input-publico.component.html',
   styleUrls: ['./input-publico.component.scss']

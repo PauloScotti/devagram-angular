@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DevagramUsuarioApiService } from '../compartilhado/servicos/devagram-api-usuario.service';
 import { UsuarioDevagram } from '../compartilhado/tipos/usuario-devagram.type';
@@ -6,6 +6,8 @@ import { AutenticacaoService } from '../compartilhado/autenticacao/autenticacao.
 import { UsuarioLogado } from '../compartilhado/autenticacao/usuario-logado.type';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.scss']
@@ -41,7 +43,7 @@ export class PerfilComponent implements OnInit {
 
       this.usuario = await this.servicoUsuario.obterInformacoesDoPerfil(idUsuario)
     } catch (e: any) {
-      alert(e.erro?.erro || 'Erro ao carregar o perfil');
+      alert(e.error?.erro || 'Erro ao carregar o perfil');
     }
   }
 

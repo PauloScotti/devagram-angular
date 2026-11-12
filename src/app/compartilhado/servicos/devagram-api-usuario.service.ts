@@ -7,18 +7,18 @@ import { UsuarioDevagram } from '../tipos/usuario-devagram.type';
 })
 export class DevagramUsuarioApiService extends DevagramApiService {
     public alternarSeguir(idUsuario: string) {
-      return this.put('seguir?id=' + idUsuario, {});
+      return this.put('seguir?id=' + encodeURIComponent(idUsuario), {});
     }
     public buscarDadosUsuario(): Promise<UsuarioDevagram> {
         return this.get('usuario');
     }
 
     public pesquisarUsuarios(filtro: string): Promise<UsuarioDevagram> {
-        return this.get('pesquisa?filtro=' + filtro);
+        return this.get('pesquisa?filtro=' + encodeURIComponent(filtro));
     }
 
     public obterInformacoesDoPerfil(idUsuario: string): Promise<UsuarioDevagram> {
-        return this.get('pesquisa?id=' + idUsuario);
+        return this.get('pesquisa?id=' + encodeURIComponent(idUsuario));
     }
 
     public atualizarPerfi(dados: any) {

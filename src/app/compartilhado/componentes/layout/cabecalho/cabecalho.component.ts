@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AutenticacaoService } from 'src/app/compartilhado/autenticacao/autenticacao.service';
-import { DevagramUsuarioApiService } from 'src/app/compartilhado/servicos/devagram-api-usuario.service';
-import { UsuarioDevagram } from 'src/app/compartilhado/tipos/usuario-devagram.type';
+import { AutenticacaoService } from '../../../autenticacao/autenticacao.service';
+import { DevagramUsuarioApiService } from '../../../servicos/devagram-api-usuario.service';
+import { UsuarioDevagram } from '../../../tipos/usuario-devagram.type';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-cabecalho',
   templateUrl: './cabecalho.component.html',
   styleUrls: ['./cabecalho.component.scss']
@@ -39,11 +41,9 @@ export class CabecalhoComponent implements OnInit {
 
         const usuarioLogado = await this.servicoAutenticacao.obterUsuarioLogado();
         this.resultadoDaPesquisa = usuariosRetornados['filter']((ur: { _id: string | undefined; }) => ur._id !== usuarioLogado?.id);
-
-        console.log(usuariosRetornados);
     } catch (e: any) {
       if(e?.status !== 400) {
-        alert(e?.error.erro || 'Erro ao pesquisar usuários');
+        alert(e?.error?.erro || 'Erro ao pesquisar usuários');
       }
     }
   }

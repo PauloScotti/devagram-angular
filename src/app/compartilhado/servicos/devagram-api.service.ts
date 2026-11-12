@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { resolve } from 'dns';
 
 @Injectable({
   providedIn: 'root'
