@@ -1,10 +1,12 @@
 import { CadastroService } from './cadastro.service';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { confirmacaoSenha } from '../compartilhado/validadores/confirmacao-senha.validator';
 import { AutenticacaoService } from '../compartilhado/autenticacao/autenticacao.service';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
@@ -21,12 +23,15 @@ export class CadastroComponent implements OnInit {
       file: [null],
       nome: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      senha: ['', [Validators.required, Validators.minLength(4)]],
+      senha: ['', [Validators.required, Validators.minLength(8)]],
       confirmacaoSenha: ['', [Validators.required, confirmacaoSenha()]],
     });
   }
 
   ngOnInit(): void {
+    this.form.controls['senha'].valueChanges.subscribe(() =>
+      this.form.controls['confirmacaoSenha'].updateValueAndValidity()
+    );
   }
 
   public obterReferencia(nomeCampo: string): AbstractControl {

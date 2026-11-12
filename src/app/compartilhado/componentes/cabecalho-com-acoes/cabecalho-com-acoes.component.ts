@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-cabecalho-com-acoes',
   templateUrl: './cabecalho-com-acoes.component.html',
   styleUrls: ['./cabecalho-com-acoes.component.scss']

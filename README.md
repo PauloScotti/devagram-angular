@@ -1,27 +1,37 @@
-# MyApp
+# Devagram Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+Front-end em Angular da rede social Devagram (projeto do curso da Devaria): cadastro, login, feed, curtidas, comentários, busca de usuários, perfil, seguir e publicação de fotos.
 
-## Development server
+Consome a API do [devagram-nextjs](https://github.com/PauloScotti/devagram-nextjs).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Stack
 
-## Code scaffolding
+Angular 22 (NgModules, formulários reativos), RxJS, SCSS, Vitest.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Como rodar
 
-## Build
+Requisito: Node 20.19+ ou 22.12+.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install
+```
 
-## Running unit tests
+```bash
+npm start
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Abre em `http://localhost:4200`. A URL da API fica em `src/environments/environment.ts` (desenvolvimento) e `environment.prod.ts` (build de produção).
 
-## Running end-to-end tests
+## Scripts
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+| Comando | O que faz |
+| --- | --- |
+| `npm start` | Servidor de desenvolvimento |
+| `npm run build` | Build de produção em `dist/devagram-angular` |
+| `npm test` | Testes unitários (Vitest) |
 
-## Further help
+## Comportamento
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Token expirado ou inválido (resposta 401) encerra a sessão e volta para o login.
+- O indicador de carregamento só aparece durante requisições.
+- Senha nova precisa de pelo menos 8 caracteres. O login aceita senhas antigas mais curtas.

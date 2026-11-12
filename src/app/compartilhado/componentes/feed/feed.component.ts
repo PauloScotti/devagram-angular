@@ -1,12 +1,14 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Postagem } from './postagem.type';
-import { AutenticacaoService } from 'src/app/compartilhado/autenticacao/autenticacao.service';
-import { UsuarioLogado } from 'src/app/compartilhado/autenticacao/usuario-logado.type';
+import { AutenticacaoService } from '../../autenticacao/autenticacao.service';
+import { UsuarioLogado } from '../../autenticacao/usuario-logado.type';
 import { FeedService } from './feed.service';
 import { UsuarioDevagram } from '../../tipos/usuario-devagram.type';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
@@ -56,7 +58,7 @@ export class FeedComponent implements OnInit, OnChanges {
         quantidadeCurtidas: postagem.likes.length
       }) as Postagem)
     } catch (e:any) {
-      alert(e.error?.erro || 'Erro ao carregar o feer!');
+      alert(e.error?.erro || 'Erro ao carregar o feed!');
     }
   }
 

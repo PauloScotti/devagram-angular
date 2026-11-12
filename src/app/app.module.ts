@@ -1,7 +1,7 @@
 import { CadastroModule } from './cadastro/cadastro.module';
 import { LoginModule } from './login/login.module';
 import { CompartilhadoModule } from './compartilhado/compartilhado.module';
-import { NgModule } from '@angular/core';
+import { NgModule, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +21,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginModule,
     CadastroModule
   ],
-  providers: [],
+  providers: [
+    provideBrowserGlobalErrorListeners(),
+    provideZoneChangeDetection()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

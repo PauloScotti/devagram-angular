@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ItemMenu } from './item-menu.type';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-navegacao',
   templateUrl: './navegacao.component.html',
   styleUrls: ['./navegacao.component.scss']

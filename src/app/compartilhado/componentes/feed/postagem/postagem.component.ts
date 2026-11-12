@@ -1,11 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Postagem } from '../postagem.type';
-import { UsuarioLogado } from 'src/app/compartilhado/autenticacao/usuario-logado.type';
+import { UsuarioLogado } from '../../../autenticacao/usuario-logado.type';
 import { FeedService } from '../feed.service';
 
 const limiteCaracteresDescricaoPadrao = 90;
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-postagem',
   templateUrl: './postagem.component.html',
   styleUrls: ['./postagem.component.scss']
@@ -80,10 +82,10 @@ export class PostagemComponent implements OnInit {
       });
       this.comentarioAtual = '';
       this.alternarExibicaoCaixaDeComentario();
-      this.estaFazendoRequisicaoParaBackend = false;
-
     } catch (e: any) {
       alert(e.error?.erro || 'Erro ao realizar o comentário');
+    } finally {
+      this.estaFazendoRequisicaoParaBackend = false;
     }
   }
 

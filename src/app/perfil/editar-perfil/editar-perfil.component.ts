@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AutenticacaoService } from 'src/app/compartilhado/autenticacao/autenticacao.service';
-import { UsuarioLogado } from 'src/app/compartilhado/autenticacao/usuario-logado.type';
-import { DevagramUsuarioApiService } from 'src/app/compartilhado/servicos/devagram-api-usuario.service';
+import { AutenticacaoService } from '../../compartilhado/autenticacao/autenticacao.service';
+import { UsuarioLogado } from '../../compartilhado/autenticacao/usuario-logado.type';
+import { DevagramUsuarioApiService } from '../../compartilhado/servicos/devagram-api-usuario.service';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-editar-perfil',
   templateUrl: './editar-perfil.component.html',
   styleUrls: ['./editar-perfil.component.scss']

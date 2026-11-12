@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-rodape-pagina-publica',
   templateUrl: './rodape-pagina-publica.component.html',
   styleUrls: ['./rodape-pagina-publica.component.scss']

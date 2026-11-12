@@ -1,8 +1,10 @@
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AutenticacaoService } from '../compartilhado/autenticacao/autenticacao.service';
 
 @Component({
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
     ) {
     this.form = this.fb.group({
       login: ['', [Validators.required, Validators.email]],
-      senha: ['', [Validators.required, Validators.minLength(4)]],
+      senha: ['', [Validators.required]],
     });
   }
 
